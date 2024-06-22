@@ -32,6 +32,7 @@ class App extends Component<{}, IState> {
    * Render Graph react component with state.data parse as property data
    */
   renderGraph() {
+    // check to make sure state is true before showing graph
     if (this.state.showGraph) {
       return (<Graph data={this.state.data}/>)
     }
@@ -42,6 +43,7 @@ class App extends Component<{}, IState> {
    */
   getDataFromServer() {
     let x = 0;
+    // enables contact with server to get data continuously
     const interval = setInterval(() => {
       DataStreamer.getData((serverResponds: ServerRespond[]) => {
         this.setState({ 
